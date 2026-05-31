@@ -1,0 +1,29 @@
+========================================================================
+¿CÓMO REEMPLAZAR LA FOTO DE LA DRA. GABRIELA EN ESTE PROYECTO?
+========================================================================
+
+Si te vas a llevar este proyecto a local, a ChatGPT, Claude, o para subirlo a tu hosting, puedes actualizar la foto de la Dra. María Gabriela fácilmente de la siguiente manera:
+
+1. Guarda la foto de la Dra. Gaby (la foto donde sostiene el estetoscopio y sonríe) utilizando cualquiera de los siguientes nombres de archivo:
+   - dra-gaby-estetoscopio.png
+   - dra-gaby-estetoscopio.jpg
+   - dra-gaby.png
+   - dra-gaby.jpg
+
+2. Coloca ese archivo directamente dentro de esta carpeta (la carpeta llamada "public" en la raíz del proyecto).
+
+3. Al hacerlo, el sitio web detectará automáticamente tu archivo local y lo cargará con la máxima prioridad.
+
+========================================================================
+SISTEMA DE SEGURIDAD CONTRA ENLACES ROTOS (FALLBACKS)
+========================================================================
+El código del componente `AboutExpert.tsx` está configurado para intentar cargar los archivos de forma inteligente en el siguiente orden estricto de prioridad:
+1. /dra-gaby-estetoscopio.png  (Tu foto local favorita)
+2. /dra-gaby-estetoscopio.jpg  (Tu foto local favorita JPG)
+3. /dra-gaby.png              (Tu foto local genérica)
+4. /dra-gaby.jpg              (Tu foto local genérica JPG)
+5. Su foto real alojada directamente en su sitio web actual (GoDaddy CDN):
+   https://img1.wsimg.com/isteam/ip/9f22e577-e86d-46e8-ae9a-1df7d0c2df48/WhatsApp%20Image%202022-02-12%20at%209.21.44%20PM.jpeg
+6. Una foto representativa de stock en Unsplash altamente profesional con rasgos coincidentes (médica con cabello oscuro largo y lentes).
+
+La foto incorrecta con cabello corto castaño parada frente a un bosque ha sido COMPLETAMENTE eliminada del código para evitar confusiones.

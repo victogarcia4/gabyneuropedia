@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist TDAH 24 Puntos - GabyNeuroPedia</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 1.5cm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #0B1C3C;
+      background: #FFFBF5;
+    }
+
+    .page {
+      page-break-after: always;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 90vh;
+    }
+
+    .logo {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FF6B00;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #0B1C3C;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #666;
+      font-weight: normal;
+      margin-bottom: 60px;
+    }
+
+    .disclaimer-box {
+      background: #FFF3E0;
+      border-left: 4px solid #FF6B00;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+
+    .disclaimer-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #E65100;
+      margin-bottom: 10px;
+    }
+
+    .disclaimer-text {
+      font-size: 12px;
+      color: #5D4037;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0B1C3C;
+      margin: 30px 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #F4D35E;
+    }
+
+    .category-header {
+      background: #E8F3EE;
+      padding: 15px;
+      margin: 25px 0 15px 0;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #0B1C3C;
+    }
+
+    .checklist-item {
+      margin: 15px 0;
+      padding: 15px;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      background: #FAFAFA;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #0B1C3C;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .item-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0B1C3C;
+      flex: 1;
+    }
+
+    .item-explanation {
+      font-size: 12px;
+      color: #666;
+      margin-left: 32px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .interpretation-section {
+      margin-top: 30px;
+    }
+
+    .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .score-table th,
+    .score-table td {
+      border: 1px solid #DDD;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .score-table th {
+      background: #0B1C3C;
+      color: white;
+      font-weight: bold;
+    }
+
+    .ebook-promo {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8534 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .ebook-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .ebook-description {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .ebook-cta {
+      background: white;
+      color: #FF6B00;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      padding: 20px;
+      background: #F5F5F5;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      color: #999;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #DDD;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: PORTADA -->
+  <div class="page cover">
+    <div class="logo">🧠</div>
+    <div class="brand-name">GABYNEUROPEDIA</div>
+
+    <h1>Checklist de Observación<br/>Diferencial TDAH</h1>
+    <h2>Escala Completa de 24 Puntos<br/>Herramienta de Tamizaje Parental para Neurodesarrollo Infantil</h2>
+
+    <div class="disclaimer-box">
+      <div class="disclaimer-title">⚕️ DISCLAIMER MÉDICO IMPORTANTE</div>
+      <div class="disclaimer-text">
+        <strong>Este checklist es una herramienta informativa diseñada exclusivamente con fines educativos.</strong>
+        NO constituye un diagnóstico médico. El TDAH (Trastorno por Déficit de Atención e Hiperactividad) requiere
+        una evaluación presencial formal realizada por un neuropediatra, psiquiatra infantil o neuropsicólogo cualificado.
+        <br/><br/>
+        <strong>Consulte siempre a un especialista en neurodesarrollo antes de tomar cualquier decisión terapéutica.</strong>
+      </div>
+    </div>
+
+    <div style="margin-top: 60px; font-size: 12px; color: #666;">
+      Desarrollado por <strong>Dra. María Gabriela Jiménez Méndez</strong><br/>
+      Neuropediatra · Hospital Sant Joan de Déu, Barcelona
+    </div>
+  </div>
+
+  <!-- PÁGINA 2-3: CHECKLIST ITEMS -->
+  <div class="page">
+    <div class="section-title">📋 Instrucciones de Uso</div>
+    <p style="margin-bottom: 20px; font-size: 14px;">
+      Lee cada enunciado cuidadosamente y marca con una ✓ aquellos que describan conductas <strong>frecuentes y consistentes</strong>
+      que observas en tu hijo/a. No te alarmes si marcas varios ítems; este ejercicio te ayudará a organizar tus observaciones
+      para compartirlas de forma objetiva con tu pediatra.
+    </p>
+
+    <div class="category-header">
+      SECCIÓN A: MARCADORES CONDUCTUALES DEL TDAH (8 ítems)
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b1. Se distrae con mucha facilidad ante estímulos irrelevantes y suele extraviar objetos de uso diario.</div>
+      </div>
+      <div class="item-explanation">
+        La inatención es un rasgo central del espectro del TDAH, pero también se ve alterada por fatiga visual, privación de sueño o estrés emocional.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b2. Se le hace difícil permanecer sentado y suele retorcerse en el asiento o mover constantemente las manos de forma inquieta.</div>
+      </div>
+      <div class="item-explanation">
+        La hiperactividad física se debe a una necesidad de autorregulación del cerebro, pero también aparece ante fatiga crónica o aburrimiento severo.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b3. Suele responder de forma precipitada antes de que se complete la pregunta o interrumpe bruscamente actividades de otros.</div>
+      </div>
+      <div class="item-explanation">
+        La impulsividad es un marcador común en el neurodesarrollo. Requiere evaluar si es generalizada o si responde a problemas de gestión emocional.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b4. Dificultad para planificar tareas secuenciales o necesita que se le organicen los pasos antes de comenzar.</div>
+      </div>
+      <div class="item-explanation">
+        La disfunción ejecutiva en planificación es un marcador central del TDAH. Los niños saben "qué" hacer pero no "cómo" organizar el orden de las acciones.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b5. Procrastinación crónica o "paralización" ante tareas con múltiples pasos.</div>
+      </div>
+      <div class="item-explanation">
+        El trastorno de inicio de tareas relacionado con sobrecarga de memoria de trabajo es distintivo del TDAH, diferente de la simple pereza.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b6. Olvida constantemente dónde puso sus pertenencias (mochila, juguetes, útiles escolares).</div>
+      </div>
+      <div class="item-explanation">
+        La dificultad con la constancia de objeto y memoria de trabajo visuo-espacial es común en TDAH pero también aparece con estrés o falta de rutinas.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b7. Se queda "paralizado" ante múltiples opciones o toma decisiones de forma muy lenta.</div>
+      </div>
+      <div class="item-explanation">
+        La sobrecarga ejecutiva ante decisiones es característica del TDAH. El cerebro se "congela" cuando hay demasiadas variables que procesar simultáneamente.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">b8. Rendimiento altamente inconsistente: puede hacer algo perfectamente un día pero no lograrlo al día siguiente.</div>
+      </div>
+      <div class="item-explanation">
+        La inconsistencia de desempeño es un sello distintivo del TDAH, diferenciándolo de déficits de capacidad real. "A veces puede" es clave diagnóstica.
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 3: SECCIÓN B -->
+  <div class="page">
+    <div class="category-header">
+      SECCIÓN B: FACTORES DIFERENCIALES AMBIENTALES (8 ítems)
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d1. Tiene hábitos de sueño irregulares o duerme constantemente menos de 9-10 horas por noche.</div>
+      </div>
+      <div class="item-explanation">
+        La privación o fragmentación de sueño imita de forma idéntica la inatención y la baja tolerancia a la frustración (síndrome de pseudo-TDAH).
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d2. Supera regularmente las 1.5 a 2 horas diarias de pantallas (celular, tablet, videojuegos).</div>
+      </div>
+      <div class="item-explanation">
+        La sobreestimulación dopaminérgica de las pantallas altera los circuitos de gratificación a largo plazo, imitando el déficit atencional cuando están apagadas.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d3. Se muestra ansioso, le preocupan mucho las cosas de forma recurrente, o tiene rasgos perfeccionistas exagerados.</div>
+      </div>
+      <div class="item-explanation">
+        Los trastornos de ansiedad infantiles a menudo se manifiestan como inquietud motora y distracción, confundiéndose fácilmente con hiperactividad.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d4. Estrés crónico en los cuidadores, dinámicas familiares tensas o conflictos parentales frecuentes.</div>
+      </div>
+      <div class="item-explanation">
+        El estrés ambiental familiar mimetiza síntomas de TDAH. Los niños reflejan la desregulación emocional de sus cuidadores principales.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d5. Cambios recientes significativos: mudanza, cambio de colegio, separación familiar, duelo o pérdida.</div>
+      </div>
+      <div class="item-explanation">
+        El duelo, trauma y estrés de adaptación generan disociación e inatención que pueden confundirse fácilmente con TDAH primario.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d6. Consumo frecuente de bebidas o alimentos con alto contenido de azúcar, colorantes artificiales o procesados.</div>
+      </div>
+      <div class="item-explanation">
+        Los estimulantes dietéticos desregulan la dopamina de forma similar al TDAH. La hipoglucemia reactiva imita inatención e irritabilidad.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d7. Problemas visuales no corregidos (miopía, astigmatismo) o pérdida auditiva parcial no diagnosticada.</div>
+      </div>
+      <div class="item-explanation">
+        Los déficits sensoriales sin corregir son malinterpretados como distracción. El niño no ve/oye bien y aparenta estar "en su mundo".
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">d8. Enfermedad crónica, medicaciones regulares o recuperación reciente de infección/cirugía.</div>
+      </div>
+      <div class="item-explanation">
+        Los estresores fisiológicos y efectos secundarios de medicamentos mimetizan perfectamente síntomas de TDAH sin serlo.
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 4: SECCIÓN C -->
+  <div class="page">
+    <div class="category-header">
+      SECCIÓN C: MARCADORES SOCIOEMOCIONALES (8 ítems)
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e1. Explota con rabietas intensas ante la frustración rutinaria y tarda más de lo habitual en calmarse.</div>
+      </div>
+      <div class="item-explanation">
+        La desregulación emocional es común en niños con TDAH debido a la inmadurez de las funciones ejecutivas, pero también acompaña al duelo o estrés.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e2. Suele rechazar o resistirse fuertemente a realizar tareas que requieran un esfuerzo mental sostenido.</div>
+      </div>
+      <div class="item-explanation">
+        La evitación de tareas puede ser señal de una disfunción ejecutiva para planificar/comenzar, o de un bloqueo ante el miedo a fracasar.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e3. Dificultades sociales marcadas: es rechazado por compañeros, evita interacciones o sufre bullying.</div>
+      </div>
+      <div class="item-explanation">
+        El rechazo social genera desregulación emocional y "acting out" conductual que se confunde con impulsividad del TDAH.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e4. Baja autoestima o autocrítica destructiva constante ("soy malo", "no puedo", "todos me odian").</div>
+      </div>
+      <div class="item-explanation">
+        El "learned helplessness" y vergüenza generan evitación que imita la procrastinación del TDAH. El miedo al fracaso paraliza.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e5. Ansiedad por separación o apego ansioso excesivo hacia los cuidadores.</div>
+      </div>
+      <div class="item-explanation">
+        La ansiedad de separación se manifiesta como inquietud motora e incapacidad para concentrarse cuando el cuidador no está visible.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e6. Rigidez cognitiva extrema o inflexibilidad ante cambios de rutina (crisis ante imprevistos).</div>
+      </div>
+      <div class="item-explanation">
+        Los rasgos del espectro autista o patrones tipo TOC requieren diagnóstico diferencial. A menudo coexisten con TDAH pero no son lo mismo.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e7. Sensibilidades sensoriales marcadas: rechaza texturas, sonidos, luces brillantes, etiquetas de ropa.</div>
+      </div>
+      <div class="item-explanation">
+        Los problemas de procesamiento sensorial causan desregulación conductual distinta del TDAH, aunque frecuentemente comórbida.
+      </div>
+    </div>
+
+    <div class="checklist-item">
+      <div class="item-header">
+        <div class="checkbox"></div>
+        <div class="item-text">e8. Comportamientos repetitivos, estereotipados o rituales compulsivos (alinear objetos, tocar repetidamente).</div>
+      </div>
+      <div class="item-explanation">
+        Indicadores del espectro autista/TOC que requieren evaluación separada. Comunes en presentaciones comórbidas con TDAH.
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 5: INTERPRETACIÓN -->
+  <div class="page">
+    <div class="section-title">📊 Interpretación de Resultados</div>
+
+    <p style="margin-bottom: 20px; font-size: 14px;">
+      Cuenta cuántos ítems marcaste en cada sección y registra los totales en la tabla siguiente:
+    </p>
+
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Categoría</th>
+          <th style="width: 120px; text-align: center;">Ítems Marcados</th>
+          <th>Interpretación Preliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SECCIÓN A</strong><br/>Marcadores Conductuales</td>
+          <td style="text-align: center; font-size: 24px; font-weight: bold;">____/8</td>
+          <td>Si marcaste <strong>4 o más</strong>: Alta presencia de rasgos conductuales típicos de TDAH. Consulta recomendada.</td>
+        </tr>
+        <tr>
+          <td><strong>SECCIÓN B</strong><br/>Factores Diferenciales</td>
+          <td style="text-align: center; font-size: 24px; font-weight: bold;">____/8</td>
+          <td>Si marcaste <strong>3 o más</strong>: Factores ambientales/médicos presentes que pueden imitar TDAH. Prioriza corregir estos antes de diagnóstico.</td>
+        </tr>
+        <tr>
+          <td><strong>SECCIÓN C</strong><br/>Marcadores Socioemocionales</td>
+          <td style="text-align: center; font-size: 24px; font-weight: bold;">____/8</td>
+          <td>Si marcaste <strong>3 o más</strong>: Componente emocional o comorbilidad presente. Evaluar ansiedad, autoestima y procesamiento sensorial.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="disclaimer-box" style="margin-top: 30px;">
+      <div class="disclaimer-title">⚕️ CONSULTA PROFESIONAL RECOMENDADA</div>
+      <div class="disclaimer-text">
+        <strong>Si marcaste 4 o más ítems conductuales (Sección A), O 3 o más ítems en cualquier categoría,</strong>
+        es recomendable agendar una evaluación formal con un especialista en neurodesarrollo.
+        <br/><br/>
+        Este checklist <strong>NO reemplaza el diagnóstico profesional</strong>. El TDAH requiere:
+        <ul style="margin-top: 10px; margin-left: 20px;">
+          <li>Evaluación clínica presencial completa</li>
+          <li>Historial de desarrollo detallado</li>
+          <li>Observación en múltiples contextos (hogar + escuela)</li>
+          <li>Descarte de factores médicos y ambientales</li>
+          <li>Pruebas neuropsicológicas cuando sea necesario</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="interpretation-section">
+      <h3 style="font-size: 16px; margin-bottom: 10px;">🔍 Próximos Pasos Recomendados:</h3>
+      <ol style="margin-left: 20px; font-size: 13px; line-height: 1.8;">
+        <li><strong>Registra observaciones específicas:</strong> Anota ejemplos concretos de cada conducta marcada (cuándo ocurre, frecuencia, duración).</li>
+        <li><strong>Comparte con el colegio:</strong> Pide a los maestros que completen este checklist desde su perspectiva.</li>
+        <li><strong>Agenda consulta especializada:</strong> Contacta a un neuropediatra, psiquiatra infantil o neuropsicólogo.</li>
+        <li><strong>Revisa factores modificables:</strong> Si marcaste muchos ítems de Sección B, comienza optimizando sueño, pantallas y nutrición.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PÁGINA 6: EBOOK PROMO -->
+  <div class="page">
+    <div class="ebook-promo">
+      <div class="ebook-title">📘 Próximo Paso Recomendado:</div>
+      <div class="ebook-title" style="font-size: 28px; margin-top: 10px;">
+        "Sin Filtros! El cerebro de mi hijo no está roto"
+      </div>
+      <div class="ebook-description">
+        El checklist te ayuda a <strong>observar conductas</strong>, pero el ebook te enseña
+        <strong>qué hacer con esa información</strong>. Aprende el <strong>Método C.L.A.R.O.</strong>
+        completo (Calma, Límites, Autonomía, Rutina, Observación) con estrategias científicas
+        explicadas sin tecnicismos por la Dra. Gabriela Jiménez.
+      </div>
+      <div style="margin: 20px 0;">
+        <div style="font-size: 18px; margin-bottom: 5px;">Incluye:</div>
+        <ul style="text-align: left; display: inline-block; margin: 0 auto;">
+          <li>8 capítulos con protocolos paso a paso</li>
+          <li>Hojas de trabajo imprimibles</li>
+          <li>Rutinas visuales descargables</li>
+          <li>Guías de comunicación con el colegio</li>
+          <li>Estrategias de autorregulación emocional</li>
+        </ul>
+      </div>
+      <div class="ebook-cta">
+        🛒 Descargar Ebook "Sin Filtros!" →<br/>
+        <span style="font-size: 12px; opacity: 0.8;">instagram.com/gabyneuropedia</span>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <h3 style="font-size: 16px; margin-bottom: 15px; color: #0B1C3C;">📞 Información de Contacto</h3>
+
+      <p style="margin-bottom: 10px;">
+        <strong>Dra. María Gabriela Jiménez Méndez</strong><br/>
+        Neuropediatra · Hospital Sant Joan de Déu, Barcelona, España
+      </p>
+
+      <p style="margin-bottom: 10px;">
+        📧 Email: mariagabrielajimenezmendez@gmail.com<br/>
+        📱 WhatsApp: +1 (832) 989-0075<br/>
+        🌐 Web: gabyneuropedia.com
+      </p>
+
+      <p>
+        <strong>Redes Sociales:</strong><br/>
+        Instagram: @gabyneuropedia<br/>
+        Facebook: /gabyneuropedia<br/>
+        YouTube: Gaby Neuropedia<br/>
+        LinkedIn: María Gabriela Jiménez
+      </p>
+    </div>
+
+    <div class="footer">
+      © 2026 GabyNeuroPedia. Todos los derechos reservados.<br/>
+      Este material es de uso educativo e informativo. No constituye consejo médico profesional.<br/>
+      Para diagnóstico y tratamiento, consulte siempre a un especialista cualificado.
+    </div>
+  </div>
+
+</body>
+</html>

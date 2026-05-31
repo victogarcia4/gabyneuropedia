@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿TDAH o algo más? | Checklist gratuito</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Lato:wght@300;400;700;900&display=swap');
+
+    :root {
+      --dark-green: #1a2e0a;
+      --mid-green: #2d4f14;
+      --accent-green: #4a7c28;
+      --lime: #8bc34a;
+      --gold: #d4a017;
+      --warm-cream: #fdf8f0;
+      --light-sage: #e8f0e0;
+      --soft-gold: #fdf6e3;
+      --soft-orange: #fff0e5;
+      --ink: #1a1a1a;
+      --muted: #555555;
+      --white: #ffffff;
+      --line: rgba(26, 46, 10, 0.14);
+      --shadow: 0 18px 45px rgba(26, 46, 10, 0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--ink);
+      background: var(--warm-cream);
+      overflow-x: hidden;
+    }
+
+    .heading { font-family: 'Playfair Display', Georgia, serif; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 0;
+      background: rgba(26, 46, 10, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: white; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 19px; }
+    .brand span { color: var(--lime); }
+    .brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--lime); color: var(--dark-green); display: grid; place-items: center; font-weight: 900; font-size: 18px; box-shadow: 0 0 0 7px rgba(139,195,74,.12); }
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a { color: rgba(255,255,255,.82); text-decoration: none; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 700; }
+    .nav-cta { padding: 10px 16px; border-radius: 4px; background: var(--gold); color: var(--dark-green) !important; }
+
+    .btn { appearance: none; border: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 28px; border-radius: 4px; background: var(--accent-green); color: white; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; text-decoration: none; transition: background .2s ease, transform .15s ease; box-shadow: 0 12px 26px rgba(26,46,10,.18); }
+    .btn:hover { background: var(--mid-green); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--dark-green); }
+    .btn-gold:hover { background: #c49012; }
+
+    .hero { position: relative; min-height: 88vh; display: flex; align-items: center; padding: 82px 0 70px; background: linear-gradient(135deg, var(--dark-green) 0%, var(--mid-green) 58%, var(--accent-green) 100%); overflow: hidden; }
+    .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.09); pointer-events: none; }
+    .hero::before { width: 330px; height: 330px; top: -110px; right: -90px; }
+    .hero::after { width: 190px; height: 190px; bottom: -60px; left: 44%; border-color: rgba(139,195,74,.22); }
+
+    .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 58px; }
+    .tier-badge { display: inline-block; padding: 5px 13px; border-radius: 2px; font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 18px; }
+    .badge-lime { background: rgba(139,195,74,.18); border: 1px solid rgba(139,195,74,.55); color: var(--lime); }
+    .badge-green { background: rgba(74,124,40,.12); color: var(--accent-green); }
+    .badge-gold { background: rgba(212,160,23,.18); color: var(--gold); }
+    .badge-red { background: #fde8e8; color: #b93b2f; }
+
+    h1 { color: white; font-size: clamp(36px, 5.4vw, 68px); line-height: 1.08; font-weight: 900; margin-bottom: 22px; }
+    h1 em { color: var(--lime); font-style: italic; }
+    .hero-copy { color: rgba(255,255,255,.82); font-size: 18px; line-height: 1.75; font-weight: 300; max-width: 650px; margin-bottom: 32px; }
+    .micro-trust { display: flex; flex-wrap: wrap; gap: 12px 18px; color: rgba(255,255,255,.68); font-size: 13px; }
+
+    .capture-card { background: white; border-radius: 8px; padding: 18px; max-width: 660px; box-shadow: 0 16px 36px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.20); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; }
+    input { width: 100%; padding: 15px 13px; border-radius: 4px; border: 1px solid #ddd6c7; background: #fffdf7; font-family: 'Lato', sans-serif; font-size: 14px; outline: none; }
+    input:focus { border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(74,124,40,.12); }
+    .form-note { margin-top: 12px; color: #666; font-size: 12px; line-height: 1.5; }
+
+    .hero-card { position: relative; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 22px; box-shadow: 0 28px 70px rgba(0,0,0,.22); }
+    .lead-cover { position: relative; min-height: 560px; background: var(--warm-cream); border-radius: 10px; padding: 34px 30px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; border-top: 5px solid var(--lime); }
+    .lead-cover::before { content: ''; position: absolute; right: -90px; top: -70px; width: 240px; height: 240px; border-radius: 50%; background: rgba(139,195,74,.18); }
+    .lead-cover::after { content: '🧠'; position: absolute; right: 28px; top: 24px; width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; background: var(--dark-green); color: white; font-size: 30px; border: 2px solid var(--lime); }
+    .cover-badge { display: inline-block; background: var(--gold); color: var(--dark-green); border-radius: 3px; padding: 7px 11px; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    .lead-cover h2 { position: relative; margin: 40px 0 12px; color: var(--dark-green); font-size: clamp(34px, 4vw, 52px); line-height: 1; font-weight: 900; }
+    .lead-cover h2 em { color: var(--accent-green); }
+    .lead-cover p { color: #4f4f4f; line-height: 1.65; font-size: 16px; max-width: 380px; }
+    .check-preview { display: grid; gap: 10px; margin-top: 24px; }
+    .check-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 6px; background: white; border: 1px solid #e2e2dc; font-weight: 700; color: var(--dark-green); font-size: 14px; }
+    .check-row::before { content: '✓'; color: var(--accent-green); font-weight: 900; }
+
+    .support-note { margin: 16px 0 0 auto; background: var(--gold); color: var(--dark-green); border-radius: 8px; padding: 13px 16px; max-width: 260px; box-shadow: 0 12px 28px rgba(0,0,0,.18); font-size: 12px; line-height: 1.45; }
+    .support-note strong { display: block; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; margin-bottom: 2px; }
+
+    .stats-strip { background: var(--dark-green); padding: 32px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+    .stat-number { color: var(--lime); font-size: 32px; font-weight: 900; }
+    .stat-label { color: rgba(255,255,255,.68); font-size: 13px; margin-top: 5px; line-height: 1.4; }
+
+    section { padding: 78px 0; }
+    .section-head { max-width: 850px; margin: 0 auto 48px; text-align: center; }
+    .section-head.left { text-align: left; margin-left: 0; }
+    .section-title { color: var(--dark-green); font-size: clamp(28px, 3.3vw, 46px); line-height: 1.12; font-weight: 900; margin-bottom: 16px; }
+    .section-title em { color: var(--accent-green); }
+    .lead { color: var(--muted); font-size: 17px; line-height: 1.8; font-weight: 300; }
+    .light-sage { background: var(--light-sage); }
+    .dark-band { background: var(--dark-green); color: white; }
+    .dark-band .section-title { color: white; }
+    .dark-band .lead { color: rgba(255,255,255,.72); }
+
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: white; border: 1px solid #e2e2dc; border-top: 3px solid var(--accent-green); border-radius: 8px; padding: 24px 20px; box-shadow: 0 10px 26px rgba(26,46,10,.08); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(26,46,10,.13); }
+    .card.gold { border-top-color: var(--gold); background: var(--soft-gold); }
+    .card.orange { border-top-color: #e8832a; background: var(--soft-orange); }
+    .icon { font-size: 30px; margin-bottom: 12px; }
+    .card h3 { color: var(--dark-green); font-size: 21px; line-height: 1.15; margin-bottom: 10px; }
+    .card p, .card li { color: #555; font-size: 14px; line-height: 1.68; }
+    .card ul { list-style: none; display: grid; gap: 8px; }
+    .card li::before { content: '✓'; color: var(--accent-green); font-weight: 900; margin-right: 8px; }
+
+    .split { display: grid; grid-template-columns: .92fr 1.08fr; gap: 52px; align-items: center; }
+    .quote-box { background: var(--dark-green); color: white; border-radius: 12px; padding: 34px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .quote-box::after { content: ''; position: absolute; right: -60px; top: -60px; width: 190px; height: 190px; border-radius: 50%; border: 1px solid rgba(139,195,74,.25); }
+    .quote-box h2 { font-size: clamp(26px, 3vw, 38px); line-height: 1.1; margin-bottom: 16px; color: white; }
+    .quote-box p { color: rgba(255,255,255,.78); line-height: 1.75; }
+    .list { display: grid; gap: 12px; }
+    .list-item { display: flex; gap: 12px; align-items: flex-start; background: white; border: 1px solid #e2e2dc; border-left: 4px solid var(--lime); border-radius: 7px; padding: 15px 16px; font-size: 15px; color: #444; line-height: 1.55; box-shadow: 0 8px 18px rgba(26,46,10,.07); }
+    .list-item span { color: var(--accent-green); font-weight: 900; }
+
+    .modules { display: grid; gap: 14px; }
+    .module { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; background: white; border: 1px solid #e2e2dc; border-radius: 8px; padding: 17px; box-shadow: 0 8px 20px rgba(26,46,10,.07); }
+    .num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-green); color: white; font-weight: 900; }
+    .module h3 { color: var(--dark-green); font-size: 19px; margin-bottom: 5px; }
+    .module p { color: #5b5b5b; line-height: 1.62; font-size: 14px; }
+
+    .authority-box { background: linear-gradient(135deg, var(--dark-green) 0%, var(--mid-green) 100%); color: white; border-radius: 12px; padding: 42px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .authority-box::after { content: 'G'; position: absolute; right: 34px; bottom: -24px; font-size: 160px; font-weight: 900; color: rgba(139,195,74,.08); }
+    .authority-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
+    .authority-box h2 { color: white; font-size: clamp(26px, 3vw, 40px); line-height: 1.12; margin-bottom: 14px; }
+    .authority-box p { color: rgba(255,255,255,.78); line-height: 1.75; }
+    .doctor-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 9px; padding: 24px; }
+    .doctor-card h3 { color: var(--lime); font-size: 20px; margin-bottom: 8px; }
+
+    .cta-section { background: linear-gradient(135deg, var(--accent-green) 0%, var(--dark-green) 100%); color: white; text-align: center; padding: 84px 0; }
+    .cta-box { max-width: 740px; margin: 0 auto; }
+    .cta-box h2 { color: white; font-size: clamp(30px, 4vw, 48px); line-height: 1.1; margin-bottom: 16px; }
+    .cta-box h2 em { color: var(--lime); }
+    .cta-box p { color: rgba(255,255,255,.78); line-height: 1.75; margin-bottom: 28px; }
+    .final-form { max-width: 640px; margin: 0 auto; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 18px; }
+
+    footer { background: #0d1a05; color: rgba(255,255,255,.44); font-size: 12px; line-height: 1.6; padding: 26px 0; text-align: center; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .split, .authority-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 640px; margin: 0 auto; }
+      .cards-3, .stats-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .nav-links { display: none; }
+      .hero { padding: 52px 0; }
+      .cards-3, .stats-grid { grid-template-columns: 1fr; }
+      .lead-cover { min-height: 520px; padding: 26px 22px; }
+      .support-note { margin-left: 0; max-width: none; }
+      section { padding: 54px 0; }
+      .capture-card, .final-form { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><div class="brand-mark">G</div>Gaby<span>Neuropedia</span></div>
+      <div class="nav-links">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#redflags">Señales</a>
+        <a class="nav-cta" href="#descargar">Descargar</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="descargar">
+    <div class="container hero-grid">
+      <div>
+        <div class="tier-badge badge-lime">Checklist gratuito para padres</div>
+        <h1 class="heading">¿Es TDAH o <em>algo más?</em></h1>
+        <p class="hero-copy">Una guía breve y clara para observar atención, impulsividad, emociones, sueño y conducta de tu hijo antes de tomar decisiones desde el miedo.</p>
+        <form class="capture-card">
+          <div class="form-grid">
+            <input type="text" name="name" placeholder="Tu nombre" aria-label="Tu nombre" />
+            <input type="email" name="email" placeholder="Tu email" aria-label="Tu email" />
+            <button class="btn btn-gold" type="submit">Quiero el checklist</button>
+          </div>
+          <p class="form-note">Gratis · Fácil de completar · Material educativo, no diagnóstico · Diseñado para padres y cuidadores.</p>
+        </form>
+        <div class="micro-trust" style="margin-top:22px;">
+          <span>✓ Claridad sin alarmismo</span>
+          <span>✓ Lenguaje para familias</span>
+          <span>✓ Mirada neuropediátrica</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="lead-cover">
+          <div>
+            <span class="cover-badge">PDF gratuito</span>
+            <h2 class="heading">¿TDAH <em>o algo más?</em></h2>
+            <p>Checklist para padres que necesitan claridad antes de una consulta profesional.</p>
+            <div class="check-preview">
+              <div class="check-row">Foco y atención</div>
+              <div class="check-row">Impulsividad y autocontrol</div>
+              <div class="check-row">Emociones y frustración</div>
+              <div class="check-row">Sueño, pantallas y rutina</div>
+            </div>
+          </div>
+          <p style="font-size:13px; color:#666; max-width: 100%;">Observa mejor. Decide con más claridad. Busca ayuda cuando sea necesario.</p>
+        </div>
+        <div class="support-note"><strong>Primer paso</strong>No etiquetar. Observar con estructura.</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-strip">
+    <div class="container stats-grid">
+      <div><div class="stat-number heading">5 áreas</div><div class="stat-label">de observación familiar</div></div>
+      <div><div class="stat-number heading">10 min</div><div class="stat-label">para completar la guía</div></div>
+      <div><div class="stat-number heading">0 miedo</div><div class="stat-label">sin etiquetas apresuradas</div></div>
+      <div><div class="stat-number heading">1 ruta</div><div class="stat-label">para saber qué hacer después</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container split">
+      <div class="quote-box">
+        <div class="tier-badge badge-lime">El problema real</div>
+        <h2 class="heading">No todos los niños inquietos tienen TDAH.</h2>
+        <p>Pero algunas señales sí merecen observarse con más cuidado, especialmente cuando afectan la escuela, la autoestima, la convivencia familiar o las relaciones con otros niños.</p>
+      </div>
+      <div>
+        <div class="section-head left">
+          <div class="tier-badge badge-red">Lo que viven los padres</div>
+          <h2 class="section-title heading">La incertidumbre <em>agota</em>.</h2>
+          <p class="lead">Cuando un niño se distrae, se mueve demasiado, se frustra con facilidad o recibe comentarios constantes de la escuela, es normal preguntarse: “¿Será TDAH?, ¿será una etapa?, ¿estoy exagerando?”.</p>
+        </div>
+        <div class="list">
+          <div class="list-item"><span>✓</span>Quieres entender mejor lo que estás observando.</div>
+          <div class="list-item"><span>✓</span>No deseas etiquetar a tu hijo sin una mirada profesional.</div>
+          <div class="list-item"><span>✓</span>Necesitas llegar mejor preparado a una consulta.</div>
+          <div class="list-item"><span>✓</span>Quieres actuar con calma, no desde el miedo.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" class="light-sage">
+    <div class="container">
+      <div class="section-head">
+        <div class="tier-badge badge-green">Beneficios</div>
+        <h2 class="section-title heading">Empieza a ordenar tus dudas con una guía simple.</h2>
+        <p class="lead">El checklist convierte la preocupación en observación estructurada, para que puedas ver patrones y reconocer cuándo conviene pedir ayuda.</p>
+      </div>
+      <div class="cards-3">
+        <article class="card"><div class="icon">🔎</div><h3 class="heading">Observar patrones</h3><p>Identifica señales en atención, impulsividad, emociones, sueño, escuela y relaciones familiares.</p></article>
+        <article class="card gold"><div class="icon">🧩</div><h3 class="heading">Ordenar información</h3><p>Diferencia una conducta aislada de un patrón frecuente que puede estar afectando la vida diaria.</p></article>
+        <article class="card orange"><div class="icon">🚩</div><h3 class="heading">Reconocer alertas</h3><p>Detecta red flags que indican cuándo es recomendable buscar orientación profesional.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="container split">
+      <div>
+        <div class="section-head left">
+          <div class="tier-badge badge-green">Contenido del PDF</div>
+          <h2 class="section-title heading">Qué incluye el checklist “¿TDAH o algo más?”</h2>
+          <p class="lead">Está diseñado para padres sin conocimientos médicos, usando preguntas cotidianas y fáciles de responder.</p>
+        </div>
+        <form class="capture-card" style="max-width:none; box-shadow:var(--shadow);">
+          <div class="form-grid" style="grid-template-columns:1fr auto;">
+            <input type="email" name="email-secondary" placeholder="Tu email para recibir el checklist" aria-label="Tu email para recibir el checklist" />
+            <button class="btn" type="submit">Descargar gratis</button>
+          </div>
+          <p class="form-note">Recibirás el PDF en tu correo. Material educativo, no diagnóstico.</p>
+        </form>
+      </div>
+      <div class="modules">
+        <div class="module"><div class="num">1</div><div><h3 class="heading">Foco y atención</h3><p>Dificultad para concentrarse, terminar tareas, seguir instrucciones o evitar distracciones.</p></div></div>
+        <div class="module"><div class="num">2</div><div><h3 class="heading">Impulsividad y autocontrol</h3><p>Interrupciones, dificultad para esperar, decisiones rápidas o problemas para seguir reglas.</p></div></div>
+        <div class="module"><div class="num">3</div><div><h3 class="heading">Emociones y frustración</h3><p>Explosiones emocionales, irritabilidad, baja tolerancia a fallar o dificultad para calmarse.</p></div></div>
+        <div class="module"><div class="num">4</div><div><h3 class="heading">Sueño, pantallas y rutina</h3><p>Factores cotidianos que pueden parecer TDAH o intensificar síntomas parecidos.</p></div></div>
+        <div class="module"><div class="num">5</div><div><h3 class="heading">Casa, escuela y relaciones</h3><p>Impacto funcional en aprendizaje, convivencia familiar, autoestima y relaciones sociales.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="redflags" class="dark-band">
+    <div class="container">
+      <div class="section-head">
+        <div class="tier-badge badge-lime">Red flags</div>
+        <h2 class="section-title heading">Cuándo conviene buscar orientación profesional</h2>
+        <p class="lead">El checklist no diagnostica. Te ayuda a reconocer cuándo las señales son persistentes o importantes como para pedir apoyo.</p>
+      </div>
+      <div class="cards-3">
+        <article class="card"><div class="icon">⚠️</div><h3 class="heading">Persistencia</h3><p>Las señales aparecen con frecuencia durante varias semanas o meses, no solo en días difíciles.</p></article>
+        <article class="card"><div class="icon">🏠</div><h3 class="heading">Más de un ambiente</h3><p>Ocurren en casa, escuela u otros espacios, y no únicamente en una situación específica.</p></article>
+        <article class="card"><div class="icon">💔</div><h3 class="heading">Impacto funcional</h3><p>Afectan aprendizaje, autoestima, convivencia, relaciones sociales o seguridad del niño.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container authority-box">
+      <div class="authority-grid">
+        <div>
+          <div class="tier-badge badge-gold">Autoridad con cercanía</div>
+          <h2 class="heading">Una guía con mirada neuropediátrica, escrita para padres reales.</h2>
+          <p>La idea no es diagnosticar en casa ni reemplazar una consulta médica. La idea es ayudarte a observar mejor, organizar tus dudas y reconocer cuándo es importante buscar apoyo profesional.</p>
+        </div>
+        <div class="doctor-card">
+          <h3 class="heading">Metodología GabyNeuropedia</h3>
+          <p>Educación clara, humana y basada en ciencia: sin etiquetas apresuradas, sin miedo excesivo y con lenguaje accesible para familias que necesitan orientación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-box">
+      <div style="font-size:48px; margin-bottom:14px;">🧠</div>
+      <h2 class="heading">No tomes decisiones desde el miedo. <em>Empieza observando con claridad.</em></h2>
+      <p>Descarga gratis el checklist y comienza a organizar lo que ves en casa y en la escuela. Si al completarlo notas varias señales, el siguiente paso puede ser una sesión de claridad con orientación profesional.</p>
+      <form class="final-form">
+        <div class="form-grid">
+          <input type="text" name="name-final" placeholder="Tu nombre" aria-label="Tu nombre" />
+          <input type="email" name="email-final" placeholder="Tu email" aria-label="Tu email" />
+          <button class="btn btn-gold" type="submit">Quiero mi checklist</button>
+        </div>
+        <p class="form-note" style="color:rgba(255,255,255,.72);">Gratis · Enviado por email · Material educativo y no diagnóstico.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 GabyNeuropedia · Dra. María Gabriela Jiménez Méndez · Este material tiene fines educativos y no sustituye una evaluación médica, psicológica, terapéutica o escolar profesional.</div>
+  </footer>
+</body>
+</html>

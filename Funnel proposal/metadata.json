@@ -1,0 +1,6 @@
+{
+  "name": "Checklist ¿TDAH o algo más?",
+  "description": "Landing page interactiva para el Lead Magnet de gabyneuropedia: Checklist gratuito para padres preocupados por el TDAH.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
