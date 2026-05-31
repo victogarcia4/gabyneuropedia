@@ -195,13 +195,13 @@ export default function InteractiveChecklist({ onFormScrollRequest }: Interactiv
       {/* Action Prompt */}
       <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
         <p className="text-xs text-slate-500 max-w-md text-center sm:text-left leading-relaxed">
-          Esto es solo un ensayo. Para recibir el <strong>Checklist Oficial en PDF</strong> con la escala completa de 24 puntos, las preguntas guiadas para consulta y las hojas de trabajo, rellena nuestro formulario de captación.
+          Esto es solo un ensayo. Para abrir el <strong>Checklist Oficial interactivo</strong> con la escala completa de 24 puntos, marcarlo en HTML y generar tu PDF al final, rellena nuestro formulario de captación.
         </p>
         <button
           onClick={onFormScrollRequest}
           className="bg-brand-orange hover:bg-brand-orange/95 text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all"
         >
-          Ir a Descargar Checklist Principal
+          Ir a Completar Checklist Principal
         </button>
       </div>
 

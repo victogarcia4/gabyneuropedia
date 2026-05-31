@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LeadData } from '../types';
-import { Mail, User, Baby, CheckCircle2, FileDown, BookOpen, AlertCircle, Sparkles } from 'lucide-react';
+import { Mail, User, Baby, CheckCircle2, ClipboardCheck, BookOpen, AlertCircle, Sparkles } from 'lucide-react';
 
 export default function LeadMagnetForm() {
   const [formData, setFormData] = useState<LeadData>({
@@ -69,10 +69,10 @@ export default function LeadMagnetForm() {
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
-            ¡Descarga Disponible, {formData.name.split(' ')[0]}!
+            ¡Checklist Disponible, {formData.name.split(' ')[0]}!
           </h3>
           <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
-            Hemos enviado el Checklist en PDF de 24 puntos y el Método C.L.A.R.O. a tu bandeja de correo:
+            Ya puedes abrir el Checklist interactivo de 24 puntos. Márcalo en pantalla y, cuando termines, imprime o guarda tu PDF desde el navegador:
             <span className="text-brand-gold font-medium"> {formData.email}</span>.
             <br/><br/>
             <span className="text-amber-400 font-semibold">
@@ -86,16 +86,15 @@ export default function LeadMagnetForm() {
         <div className="bg-navy-900 border border-white/10 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-[10px] tracking-widest font-bold text-brand-gold uppercase">Acceso Instantáneo</span>
-            <h4 className="text-sm font-semibold text-white">Haz clic aquí para descargar el PDF de inmediato:</h4>
+            <h4 className="text-sm font-semibold text-white">Abre el HTML, completa tus marcas y genera tu PDF al finalizar:</h4>
           </div>
           <a
-            href="/checklist-tdah-24-puntos.pdf"
-            download="Checklist_TDAH_24_Puntos_GabyNeuroPedia.pdf"
+            href="/checklist-tdah-24-puntos.html"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold/90 text-navy-950 text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-lg shadow-md transition-all shrink-0"
           >
-            <FileDown className="w-4 h-4" /> Bajar PDF Ahora
+            <ClipboardCheck className="w-4 h-4" /> Completar Checklist
           </a>
         </div>
 
@@ -170,8 +169,8 @@ export default function LeadMagnetForm() {
       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none" />
 
       <div className="text-center space-y-2">
-        <h3 className="text-2xl font-serif font-bold text-navy-950">Descargar Checklist</h3>
-        <p className="text-xs text-slate-500">Rellena el formulario oficial para recibir el PDF gratuito directamente.</p>
+        <h3 className="text-2xl font-serif font-bold text-navy-950">Completar Checklist</h3>
+        <p className="text-xs text-slate-500">Rellena el formulario para abrir el checklist interactivo y guardar tu PDF al terminar.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -303,7 +302,7 @@ export default function LeadMagnetForm() {
           disabled={isSubmitting}
           className="w-full bg-brand-orange hover:bg-brand-orange/95 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-bold text-xs uppercase tracking-widest py-3.5 px-4 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-1px] active:translate-y-[1px] transition-all cursor-pointer flex items-center justify-center gap-2"
         >
-          {isSubmitting ? 'Enviando...' : 'Quiero Descargar el Checklist Gratis'}
+          {isSubmitting ? 'Enviando...' : 'Quiero Completar el Checklist Gratis'}
         </button>
 
       </form>
